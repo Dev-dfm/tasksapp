@@ -9,15 +9,35 @@
   <body>
     <form action="" class="new">
       <h2>Add new</h2>
-      <input class="enterText" type="text" placeholder="Enter Task" />
+      <input class="enterTask" type="text" placeholder="Enter Task" />
       <h3>When</h3>
       <section class="radiocontainer">
-        <label> Today <input type="radio" name="date" value="today" /> </label>
-        <label
-          >Tomorrow <input type="radio" name="date" value="tomorrow" />
+        <label class="radiocontainer-label">
+          <input
+            class="radiocontainer-input"
+            type="radio"
+            name="date"
+            value="today"
+          />
+          <span class="radiocontainer-text">Today</span>
         </label>
-        <label
-          >Select Date <input type="radio" name="date" value="selectDate" />
+        <label class="radiocontainer-label">
+          <input
+            class="radiocontainer-input"
+            type="radio"
+            name="date"
+            value="today"
+          />
+          <span class="radiocontainer-text">Tomorrow</span>
+        </label>
+        <label class="radiocontainer-label">
+          <input
+            class="radiocontainer-input"
+            type="radio"
+            name="date"
+            value="today"
+          />
+          <span class="radiocontainer-text">Select Date</span>
         </label>
       </section>
       <input class="addTask" type="submit" value="Add Task" />

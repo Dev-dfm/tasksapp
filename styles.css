@@ -1,66 +1,109 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Roboto&display=swap');
-
+/* @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Roboto&display=swap'); */
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap");
 *,
 *::after,
 *::before {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 :root {
-    --primary-color: #FE4775;
-    --secondary-color: #161060;
-    --primary-text-color: #111111;
-    --secondary-text-color: #FFFFFF;
-    --headline-color: #393939;
+  --primary-color: #fe4775;
+  --secondary-color: #161060;
+  --primary-text-color: #111111;
+  --secondary-text-color: #ffffff;
+  --headline-color: #393939;
 
-    --primary-font-family: "Montserrat", sans-serif;
-    --secondary-font-family: "Roboto", sans-serif;
+  --primary-font-family: "Montserrat", sans-serif;
+  --secondary-font-family: "Roboto", sans-serif;
+  --third-font-family: "Roboto Mono", monospace;
+  --fourth-font-family: "Open Sans", sans-serif;
 }
 
 html {
-    font-size: 16px;
+  font-size: 16px;
 }
 
 body {
-    margin: 0;
-    padding: 0;
-    height: 100vh;
-}
-
-form {
-    
+  margin: 0;
+  padding: 0;
+  /* height: 100vh; */
 }
 
 .new {
-    font-family: var(--primary-font-family);
-    display: grid;
-    grid-template: repeat(5, 1fr) / 2em auto;
+  font-family: var(--fourth-font-family);
+  display: grid;
+  grid-template-columns: 1.688em auto;
+  height: 100vh;
+
+  /* grid-template:  repeat(4, 1fr) 6em / 1.688em auto; */
+  /* grid-template: repeat(5, 1fr) / 1.688em auto; */
 }
 
 .new h2 {
-    color: var(--headline-color);
-    font-size: 47px;
-    grid-column: 2 / 3; 
+  color: var(--headline-color);
+  font-size: 2.9em;
+  grid-column: 2 / 3;
+  align-self: flex-end;
+  margin: 0;
 }
 
-.enterText {
-    border: none;
-    border-bottom: 3px rgba(52, 45, 47, 1) solid;
-    font-size: 47px;
-    grid-column: 2 / 3; 
+.enterTask {
+  border: none;
+  border-bottom: 3px rgba(52, 45, 47, 0.38) solid;
+  font-size: 2.9em;
+  color: rgba(57, 57, 57, 0.21);
+  grid-column: 2 / 3;
+  height: 2em;
+  align-self: end;
+  font-family: var(--fourth-font-family);
+  outline: none; /* hides blue border of input-box */
+}
+
+.enterTask:focus {
+    border-bottom: 3px var(--primary-color) solid;    
 }
 
 .new h3 {
-    grid-column: 2 / 3;
+  grid-column: 2 / 3;
+  text-transform: uppercase;
+  font-size: 0.9em;
+  align-self: end;
+  letter-spacing: 0.2em;
 }
 
 .new .radiocontainer {
-    grid-column: 2 /3;
+  grid-column: 2 / 3;
+  color: var(--headline-color);
+  background: rgba(212, 212, 212, 0.1);
+  font-size: 0.9em;
+  height: 5.3em;
+  padding: 0;
+  display: flex;
+  justify-content: space-around;
+}
+
+.new .radiocontainer-label {
+  align-self: center;
 }
 
 .new .addTask {
-    grid-column: 1 / -1;
+  grid-column: 1 / 3;
+  text-align: center;
+  background: var(--primary-color);
+  color: var(--secondary-text-color);
+  font-size: 1.3em;
+  padding: 0;
+  font-family: var(--fourth-font-family);
+  border: none;
 }
 
+.radiocontainer-text:hover,
+.radiocontainer-input:checked ~ .radiocontainer-text {
+  color: var(--primary-color);
+}
 
-
+.radiocontainer-input {
+  display: none;
+}
