@@ -33,7 +33,6 @@ body {
 }
 
 .form {
-  
   display: grid;
   grid-template-columns: 1.688em 1fr;
   height: 100%;
@@ -60,15 +59,15 @@ body {
   height: 2em;
   align-self: end;
   font-family: var(--fourth-font-family);
-  outline: none; /* hides blue border of input-box */
-}
-
-.form__enterTask:focus {
-    border-bottom: 3px var(--primary-color) solid;    
 }
 
 .form__enterTask::placeholder {
-    color: rgba(57, 57, 57, 0.21);
+  color: rgba(57, 57, 57, 0.21);
+}
+
+.form__enterTask:focus-visible {
+    outline: thin solid var(--primary-color);
+    border: none;
 }
 
 .form h3 {
@@ -94,21 +93,30 @@ body {
   align-self: center;
 }
 
-.form__submit {
-  grid-column: 1 / 3;
-  text-align: center;
-  background: var(--primary-color);
-  color: var(--secondary-text-color);
-  font-size: 1.3em;
-  padding: 0;
-  font-family: var(--fourth-font-family);
-  border: none;
-}
-
-.radiocontainer__input:checked + span {
+.radiocontainer__input:checked + .radiocontainer__text {
   color: var(--primary-color);
 }
 
 .radiocontainer__input {
-  display: none;
+  position: absolute;
+  opacity: 0;
+}
+
+.radiocontainer__input:focus-visible + .radiocontainer__text {
+  outline: thin solid;
+}
+
+.form__submit {
+    grid-column: 1 / 3;
+    text-align: center;
+    background: var(--primary-color);
+    color: var(--secondary-text-color);
+    font-size: 1.3em;
+    padding: 0;
+    font-family: var(--fourth-font-family);
+    border: none;
+  }
+
+  .form__submit:focus-visible {
+    outline: thin solid var(--primary-color);
 }
