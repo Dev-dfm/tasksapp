@@ -115,32 +115,35 @@ body {
 .tasks {
   display: grid;
   height: 100%;
-  grid-template-columns: 4.5em 3fr 1fr;
-  grid-template-rows: 0.25fr 0.15fr 1fr;
+  /* grid-template-columns: 4.5em 3fr 1fr; */
+  /* grid-template-rows: 0.25fr 0.15fr 1fr; */
+  grid-template-columns: auto 1fr auto;
+  grid-template-rows: auto auto 1fr;
 }
 
 .tasks__burger {
-  grid-column: 1 / 2;
+  grid-column: 1 / 4;
+  justify-self: start;
   border: none;
   background: none;
-  padding-left: 2em;
-  padding-top: 2em;
+  margin: 2em;
+  margin-top: 4em;
 }
 
-.tasks .alert {
+.tasks__alert {
   display: flex;
   grid-column: 1 / 4;
   justify-content: space-between;
+  align-items: center;
 }
 
-.tasks .alert h2 {
-  font-size: 2.5em;
-  padding: 0;
-  margin: 0 0.7em;
+.tasks__alert h2 {
+  font-size: 3em;
+  margin: 0.4em 0.7em;
   letter-spacing: 0.05em;
 }
 
-.tasks .alter__bell {
+.tasks__bell {
   border: none;
   background: none;
   padding-right: 2.5em;
@@ -149,27 +152,30 @@ body {
 
 .tasks .radiocontainer {
   display: flex;
+  grid-column: 1 / 2;
+  grid-row: span 3;
+  padding: 0 2em;
   writing-mode: vertical-rl;
   transform: rotate(180deg);
   justify-content: space-evenly;
   letter-spacing: 0.1em;
   color: rgba(0, 0, 0, 0.2);
-  /* height: 100%; */
 }
 
 .tasks .checkbox {
   display: grid;
   grid-column: 2 / 4 ;
+  grid-row: 3/5;
   background-color: rgba(212, 212, 212, 0.1);
-  padding: 3em 1em 5.5em 2em;
+  padding: 3em 1em 6em 2em;
+  row-gap: 1em;
 }
 
-.tasks .plus {
+.tasks__plus {
   background: var(--primary-color);
-  position: fixed;
-  bottom: 0;
-  right: 0;
-  padding: 1.3em 2.2em;
+  grid-column: 3/4;
+  grid-row: 4/5;
+  padding: 2em;
   border-top-left-radius: 1em;
 }
 
@@ -177,7 +183,6 @@ body {
   text-decoration: line-through 2px var(--primary-color);
   /* position: relative;
   border-bottom: lawngreen 3px solid; */
-  
 }
 
 /* line before and after line-through text */
@@ -207,9 +212,9 @@ body {
   z-index: -100;
 } */
 
-.checkbox__input:checked + .checkbox__text::before {
+/* .checkbox__input:checked + .checkbox__text::before {
   bottom: 7px;
-}
+} */
 
 .checkbox__input {
   position: absolute;
