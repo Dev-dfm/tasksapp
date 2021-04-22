@@ -175,7 +175,7 @@ body {
   background: var(--primary-color);
   grid-column: 3/4;
   grid-row: 4/5;
-  padding: 2em;
+  padding: 1.5em 2.5em;
   border-top-left-radius: 1em;
 }
 
