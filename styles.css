@@ -122,14 +122,14 @@ body {
 }
 
 /*hide checkbox-burger-menu */
-.nav-toggle {
-  opacity: 0;
+/* .nav-toggle {
+  opacity: 1;
   position: absolute;
-}
+} */
 
 /* position burger-menu in grid*/
-.nav-toggle-label{
-  grid-column: 1 / 4;
+.nav-toggle{
+  grid-column: 1 / 2;
   margin: 4em 2em 1em 2em;
   /* justify-self: start; */
   /* border: none; */
@@ -150,11 +150,11 @@ body {
 .nav-toggle-label span,
 .nav-toggle-label span::before{
   display: block;
+  position: relative;
   background: var(--primary-text-color);
   height: 0.3em;
   width: 2em;
   border-radius: 2em;
-  position: relative;
 }
 
 .nav-toggle-label span::before{
@@ -268,6 +268,58 @@ body {
 .checkbox__input {
   position: absolute;
   opacity: 0;
+}
+
+#popup {
+  z-index: 999;
+  position: fixed;
+  background: var(--secondary-color);
+  color: var(--secondary-text-color);
+  height: 100%;
+  width: 100%;
+  transform: scale(0,1);
+  transform-origin: left;
+  transition: transform 550ms ease-in-out;
+  text-decoration: none;
+}
+
+#popup:target {
+  transform: scale(1, 1);
+}
+
+.popup__close {
+  position: absolute;
+  top: 1.8em;
+  right: 1.8em;
+  font-size: 1em;
+  text-decoration: none;
+  color: white;
+  font-size: 1.4em;
+}
+
+.popup__content h3 {
+  text-transform: uppercase;
+  margin: 2.5em 2em;
+  letter-spacing: 0.2em;
+}
+
+.popup__content ul {
+  list-style-type: none;
+}
+
+.popup__content a {
+  text-decoration: none;
+  color: var(--secondary-text-color);
+
+}
+
+.popup__big-ul {
+  font-size: 2em;
+  line-height: 2em;
+}
+
+.popup__small-ul {
+  line-height: 4em;
 }
 
 
