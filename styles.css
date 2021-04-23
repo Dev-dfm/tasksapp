@@ -121,16 +121,16 @@ body {
   grid-template-rows: auto auto 1fr;
 }
 
-/*hide checkbox from burger-menu */
+/*hide checkbox-burger-menu */
 .nav-toggle {
   opacity: 0;
   position: absolute;
 }
 
-/* positioning burger-menu in grid*/
+/* position burger-menu in grid*/
 .nav-toggle-label{
   grid-column: 1 / 4;
-  margin: 3em 2em 0 2em;
+  margin: 4em 2em 1em 2em;
   /* justify-self: start; */
   /* border: none; */
   /* background: none; */
@@ -146,7 +146,7 @@ body {
   align-items: center;
 } */
 
-/* burger lines */
+/* Burger Lines for ICON */
 .nav-toggle-label span,
 .nav-toggle-label span::before{
   display: block;
@@ -163,7 +163,6 @@ body {
   width: 1.5em;
   bottom: 0.6em;
 }
-
 
 /* .nav-toggle-label span::after {
   top: 7px;
