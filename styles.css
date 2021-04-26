@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
 *,
 *::after,
 *::before {
@@ -13,19 +14,11 @@
   --headline-color: #393939;
 
   --first-font-family: "Open Sans", sans-serif;
+  --second-font-family: "Montserrat", sans-serif;
 }
 
 html {
   font-size: 16px;
-}
-
-.welcome-img {
-  position: absolute;
-  background: var(--primary-color);
-  width: 375px;
-  height: 812px;
-  object-fit: none;
-  object-position: 70% 120%;
 }
 
 body {
@@ -33,6 +26,45 @@ body {
   padding: 0;
   height: 100vh;
   font-family: var(--first-font-family);
+}
+
+.welcome-page {
+  color: var(--secondary-text-color);
+  padding-left: 3em;
+  padding-top: 26em;
+}
+
+.welcome-img {
+  position: absolute;
+  background: var(--primary-color);
+  width: 100%;
+  height: 100%;
+  object-fit: none;
+  object-position: 70% 120%;
+  z-index: -1;
+}
+
+.welcome-page h2 {
+  margin: 0;
+  font-family: var(--first-font-family);
+  font-size: 1.9em;
+}
+
+.welcome-page__login {
+  font-family: var(--first-font-family);
+  letter-spacing: 0.1em;
+  padding-top: 8em;
+}
+
+.welcome-page__google-icon {
+  position: absolute;
+  background-color: white;
+  width: 6em;
+  right: 0;
+  bottom: 9em;
+  padding: 1em 2em 1em 2em;
+  border-top-left-radius: 0.5em;
+  border-bottom-left-radius: 0.5em;
 }
 
 .form {
@@ -124,8 +156,6 @@ body {
 .tasks {
   display: grid;
   height: 100%;
-  /* grid-template-columns: 4.5em 3fr 1fr; */
-  /* grid-template-rows: 0.25fr 0.15fr 1fr; */
   grid-template-columns: auto 1fr auto;
   grid-template-rows: auto auto 1fr;
 }
@@ -140,20 +170,7 @@ body {
 .nav-toggle {
   grid-column: 1 / 2;
   margin: 4em 2em 1em 2em;
-  /* justify-self: start; */
-  /* border: none; */
-  /* background: none; */
 }
-
-/* .nav-toggle-label {
-  position: absolute;
-  top: 0;
-  right: 0;
-  margin-right: 2em;
-  height: 100px;
-  display: flex;
-  align-items: center;
-} */
 
 /* Burger Lines for ICON */
 .nav-toggle-label span,
@@ -172,19 +189,6 @@ body {
   width: 1.5em;
   bottom: 0.6em;
 }
-
-/* .nav-toggle-label span::after {
-  top: 7px;
-} */
-
-/* .tasks__burger {
-  grid-column: 1 / 4;
-  justify-self: start;
-  border: none;
-  background: none;
-  margin: 2em;
-  margin-top: 4em;
-} */
 
 .tasks__alert {
   display: flex;
@@ -226,7 +230,6 @@ body {
   padding: 3em 2em 6em 2em;
   row-gap: 1em;
   font-size: 1.2rem;
-  /* text-align:justify; */
 }
 
 .tasks__new-task {
@@ -239,40 +242,7 @@ body {
 
 .checkbox__input:checked + .checkbox__text {
   text-decoration: line-through 2px var(--primary-color);
-  /* position: relative;
-  border-bottom: lawngreen 3px solid; */
 }
-
-/* line before and after line-through text */
-/* .checkbox__input:checked + .checkbox__text::before {
-  content: "";
-  display: block;
-  width: 2em;
-  height: 2px;
-  position: absolute;
-  left: -2em;
-  top: 0.6em;
-  background: blue;
-  background: var(--primary-color);
-  z-index: 100;
-} */
-
-/* .checkbox__input:checked + .checkbox__text::after {
-  content: "";
-  display: block;
-  width: 2em;
-  height: 2px;
-  position: absolute;
-  right: -4em;
-  top: 0.6em;
-  background: blue;
-  background: var(--primary-color);
-  z-index: -100;
-} */
-
-/* .checkbox__input:checked + .checkbox__text::before {
-  bottom: 7px;
-} */
 
 .checkbox__input {
   position: absolute;
@@ -292,15 +262,13 @@ body {
   text-decoration: none;
 }
 
-
-
 #popup:target {
   transform: scale(1, 1);
 }
 
 .popup__close {
   position: absolute;
-  top: 1.8em;
+  top: 2.2em;
   right: 1.8em;
   font-size: 1em;
   text-decoration: none;
@@ -310,8 +278,10 @@ body {
 
 .popup__content h3 {
   text-transform: uppercase;
-  margin: 2.5em 2em;
-  letter-spacing: 0.2em;
+  margin: 4em 2.9em;
+  letter-spacing: 0.1em;
+  font-family: var(--second-font-family);
+  font-size: 0.9em;
 }
 
 .popup__content ul {
