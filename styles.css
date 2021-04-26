@@ -210,7 +210,7 @@ body {
   display: flex;
   grid-column: 1 / 2;
   grid-row: span 3;
-  padding: 0 2em;
+  /* padding: 0 2em; */
   writing-mode: vertical-rl;
   transform: rotate(180deg);
   justify-content: space-evenly;
@@ -225,6 +225,7 @@ body {
   background-color: rgba(212, 212, 212, 0.1);
   padding: 3em 2em 6em 2em;
   row-gap: 1em;
+  font-size: 1.2rem;
   /* text-align:justify; */
 }
 
