@@ -24,22 +24,7 @@ formElement.onsubmit = function(event) {
     event.preventDefault();
 
 const taskNameInput = document.querySelector(".form__enterTask");
-const formSubmitInput = document.querySelector(".form__submit");
-
-
-
-//function to call the value insert in taskNameInput
-function getTask() {
-    const dateInput = document.querySelector(".radiocontainer__input:checked").value;
+const dateInput = document.querySelector(".radiocontainer__input:checked").value;
     console.log(taskNameInput.value + ", " + dateInput);
-}
 
-//calls the function handleClick after clicking 
-formSubmitInput.onclick = getTask;
-
-
-
-// const formElement = document.querySelector(".form");
-
-    // alert("Form submitted");
 };
