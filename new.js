@@ -6,25 +6,28 @@
 //Events
 // submitButton.addEventListener("click", showTask);
 
-// function showTask() {
-//     alert("Show task");
-//   }
-
-
-
-
 
 //Zwischenspeichern der Variable enterTask in taskNameInput (Elemente aus dem DOM zwischenspeichern)
-
 // Query elements from DOM
-
 const formElement = document.querySelector(".form");
-formElement.onsubmit = function(event) {
-    // Prevent the default form submit behaviour (sending data to a server and reload page)
-    event.preventDefault();
 
-const taskNameInput = document.querySelector(".form__enterTask");
-const dateInput = document.querySelector(".radiocontainer__input:checked").value;
-    console.log(taskNameInput.value + ", " + dateInput);
+formElement.onsubmit = function (event) {
+  // Prevent the default form submit behaviour (sending data to a server and reload page)
+  event.preventDefault();
 
+  const taskNameInput = document.querySelector(".form__enterTask");
+  const dateInput = document.querySelector(".radiocontainer__input:checked");
+
+  //mit ! wird überprüft ob die Bedingung false ist
+  if (!taskNameInput.value) {
+    alert("Please enter a task");
+    return; //Beendet den Code an dieser Stelle
+  }
+
+  if (!dateInput) {
+    alert("Please select a date");
+    return; //Beendet den Code an dieser Stelle
+  } 
+  
+  console.log(taskNameInput.value + ", " + dateInput.value);
 };
