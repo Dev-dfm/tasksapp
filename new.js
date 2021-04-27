@@ -14,6 +14,8 @@
 
 
 
+//Zwischenspeichern der Variable enterTask in taskNameInput (Elemente aus dem DOM zwischenspeichern)
+
 // Query elements from DOM
 
 const formElement = document.querySelector(".form");
@@ -25,6 +27,7 @@ const taskNameInput = document.querySelector(".form__enterTask");
 const formSubmitInput = document.querySelector(".form__submit");
 
 
+
 //function to call the value insert in taskNameInput
 function getTask() {
     const dateInput = document.querySelector(".radiocontainer__input:checked").value;
@@ -33,3 +36,10 @@ function getTask() {
 
 //calls the function handleClick after clicking 
 formSubmitInput.onclick = getTask;
+
+
+
+// const formElement = document.querySelector(".form");
+
+    // alert("Form submitted");
+};
