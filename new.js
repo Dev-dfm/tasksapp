@@ -10,6 +10,21 @@
 // Query elements from DOM
 const formElement = document.querySelector(".form");
 
+function parseJSONFromLocalStorage(key) {
+  const json = localStorage.getItem(key);
+  const data = JSON.parse(json);
+  return data;
+}
+
+function appendToArray(item, array) {
+  return [...array, item];
+}
+
+function stringifyJSONToLocalStorage(key, value) {
+  const json = JSON.stringify(value);
+  localStorage.setItem(key, json);
+}
+
 formElement.onsubmit = function (event) {
   // Prevent the default form submit behaviour (sending data to a server and reload page)
   event.preventDefault();
@@ -33,25 +48,31 @@ formElement.onsubmit = function (event) {
     date: dateInput.value,
   };
 
-/////// OLD PART ///////////////////////////
+  const taskList = parseJSONFromLocalStorage("taskList");
+  const newTaskList = appendToArray(task, taskList);
+  stringifyJSONToLocalStorage("taskList", newTaskList);
+};
+
+/////// OLD PART v1/////////////////////////////////////
   //aus task ein JSON/String machen
   // const taskJSON = JSON.stringify(task);
   //im "local storage" des Browsers speichern
   // localStorage.setItem("task", taskJSON);
- ////////////////////////////////////////////
+ ///////////////////////////////////////////////////////
 
+ /////// OLD PART v2////////////////////////////////////////
 // get values of the key "taskList" from the browser-storage
-const taskListJSON = localStorage.getItem("taskList");
+// const taskListJSON = localStorage.getItem("taskList");
 // convert/parse this value to an object
-const taskList = JSON.parse(taskListJSON);
+// const taskList = JSON.parse(taskListJSON);
 
 // add/push new task to existing taskList
-taskList.push(task);
+// taskList.push(task);
 
 //convert the taskList to JSON/String
-const newTaskListJSON = JSON.stringify(taskList);
+// const newTaskListJSON = JSON.stringify(taskList);
 // overwrite existing taskList with updated newTaskListJSON 
-localStorage.setItem("taskList", newTaskListJSON);
+// localStorage.setItem("taskList", newTaskListJSON);
 
-console.log(taskList);
-};
+// console.log(taskList);
+////////////////////////////////////////////////////////////
