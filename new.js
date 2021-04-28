@@ -18,6 +18,7 @@ formElement.onsubmit = function (event) {
   const taskNameInput = document.querySelector(".form__enterTask");
   const dateInput = document.querySelector(".radiocontainer__input:checked");
 
+
   //mit ! wird überprüft ob die Bedingung false ist
   if (!taskNameInput.value) {
     alert("Please enter a task");
@@ -28,6 +29,11 @@ formElement.onsubmit = function (event) {
     alert("Please select a date");
     return; //Beendet den Code an dieser Stelle
   } 
-  
-  console.log(taskNameInput.value + ", " + dateInput.value);
+
+  const task = {
+    name: taskNameInput.value,
+    date: dateInput.value,
+  }
+
+  console.log(task);
 };
