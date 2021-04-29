@@ -10,16 +10,17 @@
 // Query elements from DOM
 const formElement = document.querySelector(".form");
 
+// get values of the key "taskList" from the browser-storage and convert/parse this value to an object
 function parseJSONFromLocalStorage(key) {
   const json = localStorage.getItem(key);
   const data = JSON.parse(json);
   return data;
 }
-
+// add new item(task) to existing array(taskList)
 function appendToArray(item, array) {
   return [...array, item];
 }
-
+//convert the value(newTaskList) to JSON/String and overwrite existing key("taskList") with updated value(newTaskList)
 function stringifyJSONToLocalStorage(key, value) {
   const json = JSON.stringify(value);
   localStorage.setItem(key, json);
