@@ -28,6 +28,9 @@ body {
   font-family: var(--first-font-family);
 }
 
+/* //////////////////////////////////////// */
+/* WELCOME PAGE */
+/* //////////////////////////////////////// */
 .welcome-page {
   color: var(--secondary-text-color);
   padding-left: 3em;
@@ -67,6 +70,10 @@ body {
   border-bottom-left-radius: 0.5em;
 }
 
+
+/* //////////////////////////////////////// */
+/* ADD NEW TASK PAGE */
+/* //////////////////////////////////////// */
 .form {
   display: grid;
   grid-template-columns: 1.688em 1fr;
@@ -153,6 +160,9 @@ body {
   outline: thin solid var(--primary-color);
 }
 
+/* //////////////////////////////////////// */
+/* TASKS-LIST PAGE */
+/* //////////////////////////////////////// */
 .tasks {
   display: grid;
   height: 100%;
@@ -249,6 +259,9 @@ body {
   opacity: 0;
 }
 
+/* //////////////////////////////////////// */
+/* POPUP-MENU PAGE */
+/* //////////////////////////////////////// */
 #popup {
   z-index: 999;
   position: fixed;
