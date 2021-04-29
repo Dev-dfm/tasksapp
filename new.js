@@ -11,8 +11,12 @@
 const formElement = document.querySelector(".form");
 
 // get values of the key "taskList" from the browser-storage and convert/parse this value to an object
-function parseJSONFromLocalStorage(key) {
+function parseJSONFromLocalStorage(key, defaultValue) {
   const json = localStorage.getItem(key);
+    // if no tasks in array set defaultValue
+    if (json === null) {
+      return defaultValue;
+    }
   const data = JSON.parse(json);
   return data;
 }
@@ -24,6 +28,10 @@ function appendToArray(item, array) {
 function stringifyJSONToLocalStorage(key, value) {
   const json = JSON.stringify(value);
   localStorage.setItem(key, json);
+}
+
+function goToPage(href) {
+  location.href = href;
 }
 
 formElement.onsubmit = function (event) {
@@ -49,10 +57,13 @@ formElement.onsubmit = function (event) {
     date: dateInput.value,
   };
 
-  const taskList = parseJSONFromLocalStorage("taskList");
+  const taskList = parseJSONFromLocalStorage("taskList", []);
   const newTaskList = appendToArray(task, taskList);
   stringifyJSONToLocalStorage("taskList", newTaskList);
+  goToPage("/tasks.html");
 };
+
+
 
 /////// OLD PART v1/////////////////////////////////////
   //aus task ein JSON/String machen
