@@ -14,10 +14,32 @@ function createTaskElement(taskName) {
     return label;
 }
 
-const buyBeer = createTaskElement("buy some beer");
-const drinkBeer = createTaskElement("drink beer");
+// get values of the key "taskList" from the browser-storage and convert/parse this value to an object
+function parseJSONFromLocalStorage(key, defaultValue) {
+    const json = localStorage.getItem(key);
+      // if no tasks in array set defaultValue
+      if (json === null) {
+        return defaultValue;
+      }
+    const data = JSON.parse(json);
+    return data;
+  }
 
+//get array with task objects from local Storage
+const taskList = parseJSONFromLocalStorage("taskList", []);
+//create taskElements array consisting of html elements base on the ...
+const taskElements = taskList.map(function (task) {
+    return createTaskElement(task.name);
+});
+
+//get the existing (parent element) task-List
 const tasksGroupElement = document.querySelector(".checkbox")
 
-tasksGroupElement.append(buyBeer, drinkBeer)
+//append all elements in taskElement to task group
+//Add new tasks to existing task-list
+tasksGroupElement.append(...taskElements);
 // console.log(tasksGroupElement)
+
+//filter elements Array.prototype.filter()
+//find element
+
