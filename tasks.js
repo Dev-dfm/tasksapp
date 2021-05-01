@@ -1,3 +1,4 @@
+// Creates an HTML-template for the taskList
 function createTaskElement(taskName) {
   //Create Elements for HTML
   const label = document.createElement("label");
@@ -9,12 +10,12 @@ function createTaskElement(taskName) {
 
   span.className = "checkbox__text";
   span.innerText = taskName;
-  //define input and span as child of the parent label
+  // Define input and span as child of the parent label
   label.append(input, span);
   return label;
 }
 
-// get values of the key "taskList" from the browser-storage and convert/parse this value to an object
+// Get taskList from the local-browser-storage and converts it to an object
 function parseJSONFromLocalStorage(key, defaultValue) {
   const json = localStorage.getItem(key);
   // if no tasks in array set defaultValue
@@ -25,24 +26,31 @@ function parseJSONFromLocalStorage(key, defaultValue) {
   return data;
 }
 
-//get array with task objects from local Storage
+// Get Array with taskList objects from local Storage
 const taskList = parseJSONFromLocalStorage("taskList", []);
-//create taskElements array consisting of html elements base on the ...
 
-/////////////////////////////////////////////////
-/// NEW FUNC
-function filterAndAppendDate(TaskDate) {
-  const tasksDate = taskList.filter((task) => task.date === TaskDate);
+// Create TaskList filtered by date, mapping only the taskNames
+function createTaskList(selectedDate) {
+  const tasksDate = taskList.filter((task) => task.date === selectedDate);
   const taskElements = tasksDate.map(function (task) {
     return createTaskElement(task.name);
   });
   const tasksGroupElement = document.querySelector(".checkbox");
-  tasksGroupElement.removeChild();
+  tasksGroupElement.innerHTML = "";
   tasksGroupElement.append(...taskElements);
 }
-// Wählt die input-Elemente aller radiobuttons
+
+// Select all radio buttons (date-selection)
 const dateInputs = document.querySelectorAll(".radiocontainer__input");
-// Für jeden Eintrag in dieser Liste wird eine Aktion ausgeführt
+
+// Show as default a no filtered taskList (first page)
+const taskElements = taskList.map(function (task) {
+  return createTaskElement(task.name);
+});
+const tasksGroupElement = document.querySelector(".checkbox");
+tasksGroupElement.append(...taskElements);
+
+// Creates a filtered taskList by changing the DateSelection (radiobutton)
 dateInputs.forEach((dateInput) => {
-  dateInput.onchange = () => filterAndAppendDate(dateInput.value);
+  dateInput.onchange = () => createTaskList(dateInput.value);
 });
