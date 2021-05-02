@@ -1,12 +1,3 @@
-// alert("Show Task");
-
-// Variables
-// const submitButton = document.querySelector(".form__submit");
-
-//Events
-// submitButton.addEventListener("click", showTask);
-
-//Zwischenspeichern der Variable enterTask in taskNameInput (Elemente aus dem DOM zwischenspeichern)
 // Query elements from DOM
 const formElement = document.querySelector(".form");
 
@@ -55,6 +46,7 @@ formElement.onsubmit = function (event) {
   const task = {
     name: taskNameInput.value,
     date: dateInput.value,
+    // completed: true,
   };
 
   const taskList = parseJSONFromLocalStorage("taskList", []);

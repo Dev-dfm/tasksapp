@@ -1,3 +1,7 @@
+// SELECTORS
+const dateInputs = document.querySelectorAll(".radiocontainer__input");
+const tasksGroupElement = document.querySelector(".checkbox");
+
 // Creates an HTML-template for the taskList
 function createTaskElement(taskName) {
   //Create Elements for HTML
@@ -7,7 +11,7 @@ function createTaskElement(taskName) {
   //fills Element with attributes
   input.type = "checkbox";
   input.className = "checkbox__input";
-
+  //   input.completed = false;
   span.className = "checkbox__text";
   span.innerText = taskName;
   // Define input and span as child of the parent label
@@ -18,10 +22,11 @@ function createTaskElement(taskName) {
 // Get taskList from the local-browser-storage and converts it to an object
 function parseJSONFromLocalStorage(key, defaultValue) {
   const json = localStorage.getItem(key);
-  // if no tasks in array set defaultValue
+  // if no tasks in array creates an empty array as default
   if (json === null) {
     return defaultValue;
   }
+  // else converts data from localStorage to an object
   const data = JSON.parse(json);
   return data;
 }
@@ -31,26 +36,34 @@ const taskList = parseJSONFromLocalStorage("taskList", []);
 
 // Create TaskList filtered by date, mapping only the taskNames
 function createTaskList(selectedDate) {
-  const tasksDate = taskList.filter((task) => task.date === selectedDate);
-  const taskElements = tasksDate.map(function (task) {
-    return createTaskElement(task.name);
-  });
-  const tasksGroupElement = document.querySelector(".checkbox");
+  const taskElements = taskList.filter((task) => task.date === selectedDate).map((task) => createTaskElement(task.name));
   tasksGroupElement.innerHTML = "";
   tasksGroupElement.append(...taskElements);
+  console.log(tasksGroupElement);
 }
-
-// Select all radio buttons (date-selection)
-const dateInputs = document.querySelectorAll(".radiocontainer__input");
 
 // Show as default a no filtered taskList (first page)
 const taskElements = taskList.map(function (task) {
   return createTaskElement(task.name);
 });
-const tasksGroupElement = document.querySelector(".checkbox");
 tasksGroupElement.append(...taskElements);
 
 // Creates a filtered taskList by changing the DateSelection (radiobutton)
 dateInputs.forEach((dateInput) => {
   dateInput.onchange = () => createTaskList(dateInput.value);
 });
+
+// NEW FUNC
+// mark task as done
+// const checkedTasks = document.querySelectorAll(".checkbox__input");
+
+// const checkedTasks = document.querySelectorAll(".checkbox__input");
+// console.log(checkedTasks)
+
+// checkedTasks.checked = createTaskElement.complete
+
+// checkedTasks.
+// CSS
+// .checkbox__input:checked + .checkbox__text {
+//   text-decoration: line-through 2px var(--primary-color);
+// }
