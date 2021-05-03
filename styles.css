@@ -254,6 +254,10 @@ body {
   text-decoration: line-through 2px var(--primary-color);
 }
 
+/* .completed {
+  text-decoration: line-through 2px var(--primary-color);
+} */
+
 .checkbox__input {
   position: absolute;
   opacity: 0;
