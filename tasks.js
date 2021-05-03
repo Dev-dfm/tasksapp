@@ -2,9 +2,6 @@
 const dateInputs = document.querySelectorAll(".radiocontainer__input");
 const tasksGroupElement = document.querySelector(".checkbox");
 
-// EVENT LISTENER
-// tasksGroupElement.addEventListener("click", completed);
-
 // Creates an HTML-template for the taskList
 function createTaskElement(task) {
   //Create Elements for HTML
@@ -22,14 +19,12 @@ function createTaskElement(task) {
   span.innerText = task.name;
   // Define input and span as child of the parent label
   label.append(input, span);
-  // console.log(label)
   return label;
   
 }
 
 function completeTask(taskName, completed) {
   const taskList = parseJSONFromLocalStorage("taskList", []);
-  console.log(taskList);
   const task = taskList.find(function (task) {
     return task.name === taskName;
   });
@@ -57,8 +52,12 @@ function stringifyJSONToLocalStorage(key, value) {
 // Get Array with taskList objects from local Storage
 const taskList = parseJSONFromLocalStorage("taskList", []);
 
+// Show per default tasks from today
+createTaskList("today");
+
 // Create TaskList filtered by date, mapping only the taskNames
 function createTaskList(selectedDate) {
+  const taskList = parseJSONFromLocalStorage("taskList", []);
   const taskElements = taskList.filter((task) => task.date === selectedDate).map((task) => createTaskElement(task));
   tasksGroupElement.innerHTML = "";
   tasksGroupElement.append(...taskElements);
