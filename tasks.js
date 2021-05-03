@@ -2,6 +2,9 @@
 const dateInputs = document.querySelectorAll(".radiocontainer__input");
 const tasksGroupElement = document.querySelector(".checkbox");
 
+// EVENT LISTENER
+tasksGroupElement.addEventListener("click", completed);
+
 // Creates an HTML-template for the taskList
 function createTaskElement(taskName) {
   //Create Elements for HTML
@@ -39,21 +42,38 @@ function createTaskList(selectedDate) {
   const taskElements = taskList.filter((task) => task.date === selectedDate).map((task) => createTaskElement(task.name));
   tasksGroupElement.innerHTML = "";
   tasksGroupElement.append(...taskElements);
-  console.log(tasksGroupElement);
 }
 
-// Show as default a no filtered taskList (first page)
+///////////////////////////////////////////////////////
+// Show no filtered taskList as default
 const taskElements = taskList.map(function (task) {
   return createTaskElement(task.name);
 });
 tasksGroupElement.append(...taskElements);
+//////////////////////////////////////////////////////
 
 // Creates a filtered taskList by changing the DateSelection (radiobutton)
 dateInputs.forEach((dateInput) => {
   dateInput.onchange = () => createTaskList(dateInput.value);
 });
 
-// NEW FUNC
+// FUNC COMPLETE ////////////////////////////////
+function completed (e) {
+  const item = e.target;
+  if (item.classList[0] === "checkbox__text") {
+    item.classList.toggle("completed");
+    console.log(item)
+  }
+}
+
+
+// function completed (e) {
+//   if (data.classList[3] === false) {
+//     data.classList.toggle
+//   }
+// }
+
+
 // mark task as done
 // const checkedTasks = document.querySelectorAll(".checkbox__input");
 
